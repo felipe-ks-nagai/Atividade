@@ -1,6 +1,4 @@
-﻿
-
-namespace AulaAPS
+﻿namespace AulaAPS
 {
     internal class Retangulo : FormaGeometrica
     {
