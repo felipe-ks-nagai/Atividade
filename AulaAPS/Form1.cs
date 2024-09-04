@@ -135,6 +135,7 @@ namespace AulaAPS
             FormaGeometrica triangulo = new Triangulo()
             {
                 Base = Convert.ToDouble(txtBase.Text),
+                Altura = Convert.ToDouble(txtAltura.Text)
                
             }
         }
