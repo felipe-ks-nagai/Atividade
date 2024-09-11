@@ -181,7 +181,7 @@
             this.cmbTriangulo.Size = new System.Drawing.Size(121, 21);
             this.cmbTriangulo.TabIndex = 1;
             this.cmbTriangulo.Visible = false;
-            this.cmbTriangulo.SelectedIndexChanged += new System.EventHandler(this.cmbTriangulo_SelectedIndexChanged);
+            
             // 
             // cmbForma
             // 

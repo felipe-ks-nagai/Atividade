@@ -98,7 +98,7 @@ namespace AulaAPS
                     CalcularQuadrado();
                     break;
                 case "Triângulo":
-
+                    CalcularTriangulo();
                     break;
                 case "Retângulo":
                     CalcularRetangulo();
@@ -132,14 +132,21 @@ namespace AulaAPS
 
         private void CalcularTriangulo()
         {
-            FormaGeometrica triangulo = new Triangulo()
+            cmbTriangulo.Enabled = true;
+            switch (cmbTriangulo.Text) 
             {
-                Base = Convert.ToDouble(txtBase.Text),
-                Altura = Convert.ToDouble(txtAltura.Text)
-               
+                case "Equilátero":
+                    CalcularTriangulo
+                    break;
+                case "Isósceles":
+                    break;
+                case "Reto":
+                    break;
+
+
             }
         }
-        '
+        
         private void cmbObjetos_SelectedIndexChanged(object sender, EventArgs e)
         {
             FormaGeometrica obj = cmbObjetos.SelectedItem as FormaGeometrica;
@@ -147,5 +154,16 @@ namespace AulaAPS
             txtPerimetro.Text = obj.CalcularPerimetro().ToString();
         }
 
+        private void CalcularEquilatero()
+        {
+            FormaGeometrica equilatero = new Equilatero()
+            {
+                Base = Convert.ToDouble(txtBase.Text),
+                Altura = Convert.ToDouble(txtAltura.Text)
+            };
+            cmbObjetos.Items.Add(equilatero);
+
+
+        }
     }
 }
