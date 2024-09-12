@@ -12,6 +12,7 @@ namespace AulaAPS
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -28,8 +29,10 @@ namespace AulaAPS
                     SelecionarTriangulo();
                     break;
                 case "Retângulo":
+                    SelecionarRetangulo();
                     break;
                 case "Círculo":
+                    SelecionarCirculo();
                     break;
                 default:
                     break;
@@ -45,9 +48,6 @@ namespace AulaAPS
         }
         private void SelecionarTriangulo()
         {
-            ExibirBase(true);
-            ExibirAltura(true);
-            ExibirRaio(false);
             FormatoTriang(true);
         }
 
@@ -91,22 +91,40 @@ namespace AulaAPS
 
         private void btnCriar_Click(object sender, EventArgs e)
         {
-
-            switch (cmbForma.Text)
+            if (cmbTriangulo.Visible == false)
             {
-                case "Quadrado":
-                    CalcularQuadrado();
-                    break;
-                case "Triângulo":
-                    CalcularTriangulo();
-                    break;
-                case "Retângulo":
-                    CalcularRetangulo();
-                    break;
-                case "Círculo":
-                    break;
-                default:
-                    break;
+                txtPerimetro.Text = "aaa";
+                switch (cmbForma.Text)
+                {
+                    case "Quadrado":
+                        CalcularQuadrado();
+                        break;
+                    case "Retângulo":
+                        CalcularRetangulo();
+                        break;
+                    case "Círculo":
+                        CalcularCirculo();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                switch (cmbTriangulo.Text)
+                {
+                    case "Equilátero":
+                        CalcularEquilatero();
+                        break;
+                    case "Isósceles":
+                        CalcularIsosceles();
+                        break;
+                    case "Reto":
+                        CalcularReto();
+                        break;
+                    default:
+                        break;
+                }
             }
             
         }
@@ -117,6 +135,7 @@ namespace AulaAPS
             {
                 Lado = Convert.ToDouble(txtBase.Text),
             };
+            txtPerimetro.Text = "aaaa";
             cmbObjetos.Items.Add(quadrado);
         }
 
@@ -130,40 +149,154 @@ namespace AulaAPS
             cmbObjetos.Items.Add(retangulo);
         }
 
-        private void CalcularTriangulo()
+        private void cmbTriangulo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbTriangulo.Enabled = true;
-            switch (cmbTriangulo.Text) 
+            switch (cmbTriangulo.Text)
             {
                 case "Equilátero":
-                    CalcularTriangulo
+                    SelecionarEquilatero();
                     break;
                 case "Isósceles":
+                    SelecionarIsosceles();
                     break;
                 case "Reto":
+                    SelecionarReto();
                     break;
 
 
             }
         }
+
+
+private void CalcularCirculo()
+        {
+            FormaGeometrica circulo = new Circulo()
+            {
+                Raio = Convert.ToDouble(txtRaio.Text),
+            };
+            cmbObjetos.Items.Add(circulo);
+
+        }
+
+
+        private void SelecionarEquilatero()
+        {
+            ExibirBase(true);
+            ExibirAltura(false);
+            ExibirRaio(false);
+        }
+
+        private void SelecionarIsosceles()
+        {
+            ExibirBase(true);
+            ExibirAltura(true);
+            ExibirRaio(false);
+        }
+
+        private void SelecionarReto()
+        {
+            ExibirBase(true);
+            ExibirAltura(true);
+            ExibirRaio(false);
+        }
         
         private void cmbObjetos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int perimetro = 0;
+            int area = 0;
+            bool verificarPerimetro = false;
+            bool verificarArea = false;
+
             FormaGeometrica obj = cmbObjetos.SelectedItem as FormaGeometrica;
-            txtArea.Text = obj.CalcularArea().ToString();
-            txtPerimetro.Text = obj.CalcularPerimetro().ToString();
+            for(int i = 0; i < obj.CalcularPerimetro().ToString().Length; i++)
+            {
+                if(obj.CalcularPerimetro().ToString().Substring(i,1) == ",")
+                {
+                    verificarPerimetro = true;
+                    break;
+                }
+                else
+                {
+                    perimetro += 1;
+                }
+            }
+
+            for (int i = 0; i < obj.CalcularArea().ToString().Length; i++)
+            {
+                if (obj.CalcularArea().ToString().Substring(i, 1) == ",")
+                {
+                   
+                    verificarArea = true;
+                    break;
+                }
+                else
+                {
+                    area += 1;
+                }
+            }
+            if(verificarPerimetro)
+            {
+                txtPerimetro.Text = obj.CalcularPerimetro().ToString().Substring(0, perimetro + 3);
+                verificarPerimetro = false;
+            }
+            else
+            {
+                txtPerimetro.Text = obj.CalcularPerimetro().ToString();
+            }
+
+            if (verificarArea)
+            {
+                txtArea.Text = obj.CalcularArea().ToString().Substring(0, area + 3);
+                verificarArea = false;
+            }
+            else
+            {
+                txtArea.Text = obj.CalcularArea().ToString();
+            }
+            
+            
+
+
+
+
+
+
+
+        }
+
+        private void CalcularIsosceles()
+        {
+
+            FormaGeometrica isosceles = new Isosceles()
+            {
+                Base = Convert.ToDouble(txtBase.Text)
+            };
+            cmbObjetos.Items.Add(isosceles);
+
+        }
+
+        private void CalcularReto()
+        {
+
+            FormaGeometrica reto = new Reto()
+            {
+                Base = Convert.ToDouble(txtBase.Text)
+            };
+            cmbObjetos.Items.Add(reto);
+
         }
 
         private void CalcularEquilatero()
         {
+
             FormaGeometrica equilatero = new Equilatero()
             {
-                Base = Convert.ToDouble(txtBase.Text),
-                Altura = Convert.ToDouble(txtAltura.Text)
+                Base = Convert.ToDouble(txtBase.Text)
             };
             cmbObjetos.Items.Add(equilatero);
 
-
         }
+
+        
     }
 }

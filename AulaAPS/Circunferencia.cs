@@ -2,11 +2,11 @@
 
 namespace AulaAPS
 {
-    public class Circunferencia : FormaGeometrica
+    public class Circulo : FormaGeometrica
     {
-        private int raio;
+        private double raio;
 
-        public int Raio
+        public double Raio
         {
             get { return raio; }
             set { raio = value; }

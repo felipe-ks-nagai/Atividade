@@ -2,7 +2,7 @@
 
 namespace AulaAPS
 {
-    public class TrianguloReto : FormaGeometrica
+    public class Reto : FormaGeometrica
     {
         private double _base;
         public double Base

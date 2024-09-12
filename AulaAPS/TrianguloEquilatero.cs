@@ -2,7 +2,7 @@
 
 namespace AulaAPS
 {
-    public class TrianguloEquilatero : FormaGeometrica
+    public class Equilatero : FormaGeometrica
     {
         private double _base;
         public double Base

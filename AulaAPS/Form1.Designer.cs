@@ -181,13 +181,13 @@
             this.cmbTriangulo.Size = new System.Drawing.Size(121, 21);
             this.cmbTriangulo.TabIndex = 1;
             this.cmbTriangulo.Visible = false;
-            
+            this.cmbTriangulo.SelectedIndexChanged += new System.EventHandler(this.cmbTriangulo_SelectedIndexChanged);
             // 
             // cmbForma
             // 
             this.cmbForma.FormattingEnabled = true;
             this.cmbForma.Items.AddRange(new object[] {
-            "Circunferência",
+            "Círculo",
             "Quadrado",
             "Retângulo",
             "Triângulo"});
