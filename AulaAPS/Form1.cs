@@ -244,7 +244,7 @@ namespace AulaAPS
 
             if (verificarArea)
             {
-                txtArea.Text = obj.CalcularArea().ToString().Substring(0, area + 3);
+                txtArea.Text = obj.CalcularArea().ToString().Substring(0, area + 2);
                 verificarArea = false;
             }
             else
