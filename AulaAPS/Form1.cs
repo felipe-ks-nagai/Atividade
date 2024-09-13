@@ -93,7 +93,6 @@ namespace AulaAPS
         {
             if (cmbTriangulo.Visible == false)
             {
-                txtPerimetro.Text = "aaa";
                 switch (cmbForma.Text)
                 {
                     case "Quadrado":
@@ -135,7 +134,6 @@ namespace AulaAPS
             {
                 Lado = Convert.ToDouble(txtBase.Text),
             };
-            txtPerimetro.Text = "aaaa";
             cmbObjetos.Items.Add(quadrado);
         }
 
@@ -168,7 +166,7 @@ namespace AulaAPS
         }
 
 
-private void CalcularCirculo()
+        private void CalcularCirculo()
         {
             FormaGeometrica circulo = new Circulo()
             {
@@ -253,15 +251,6 @@ private void CalcularCirculo()
             {
                 txtArea.Text = obj.CalcularArea().ToString();
             }
-            
-            
-
-
-
-
-
-
-
         }
 
         private void CalcularIsosceles()
@@ -269,7 +258,8 @@ private void CalcularCirculo()
 
             FormaGeometrica isosceles = new Isosceles()
             {
-                Base = Convert.ToDouble(txtBase.Text)
+                Base = Convert.ToDouble(txtBase.Text),
+                Altura = Convert.ToDouble(txtAltura.Text)
             };
             cmbObjetos.Items.Add(isosceles);
 
@@ -280,7 +270,8 @@ private void CalcularCirculo()
 
             FormaGeometrica reto = new Reto()
             {
-                Base = Convert.ToDouble(txtBase.Text)
+                Base = Convert.ToDouble(txtBase.Text),
+                Altura = Convert.ToDouble(txtAltura.Text)
             };
             cmbObjetos.Items.Add(reto);
 

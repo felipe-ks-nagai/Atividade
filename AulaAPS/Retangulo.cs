@@ -25,5 +25,9 @@
         {
             return ((_base * 2) + (altura * 2));
         }
+        public override string ToString()
+        {
+            return $"Retângulo ({_base},{altura})";
+        }
     }
 }

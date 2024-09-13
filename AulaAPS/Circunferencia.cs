@@ -21,5 +21,9 @@ namespace AulaAPS
         {
             return (Math.PI * (raio * 2) * 3);
         }
+        public override string ToString()
+        {
+            return $"Círculo ({raio})";
+        }
     }
 }

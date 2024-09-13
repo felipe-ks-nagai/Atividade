@@ -104,6 +104,7 @@
             // 
             // cmbObjetos
             // 
+            this.cmbObjetos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbObjetos.FormattingEnabled = true;
             this.cmbObjetos.Location = new System.Drawing.Point(408, 34);
             this.cmbObjetos.Name = "cmbObjetos";
@@ -171,6 +172,7 @@
             // 
             // cmbTriangulo
             // 
+            this.cmbTriangulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTriangulo.FormattingEnabled = true;
             this.cmbTriangulo.Items.AddRange(new object[] {
             "Equilátero",
@@ -185,6 +187,7 @@
             // 
             // cmbForma
             // 
+            this.cmbForma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbForma.FormattingEnabled = true;
             this.cmbForma.Items.AddRange(new object[] {
             "Círculo",

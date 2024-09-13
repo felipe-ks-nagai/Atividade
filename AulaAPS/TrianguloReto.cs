@@ -31,5 +31,9 @@ namespace AulaAPS
             hipotenusa = System.Math.Sqrt(Math.Pow(_base, 2) + Math.Pow(altura, 2));
             return (_base + altura + hipotenusa);
         }
+        public override string ToString()
+        {
+            return $"Triângulo Reto ({_base},{altura})";
+        }
     }
 }
