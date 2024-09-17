@@ -19,7 +19,7 @@ namespace AulaAPS
 
         public override double CalcularPerimetro()
         {
-            return (Math.PI * (raio * 2) * 3);
+            return (Math.PI * (raio * 2));
         }
         public override string ToString()
         {
